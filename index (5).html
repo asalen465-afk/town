@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>عيادات تاون كلينك | Town Clinic</title>
+<meta name="description" content="عيادات تاون كلينك – خدمات طبية في تخصصات متعددة | حدائق الأهرام وحدائق أكتوبر">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="#top" aria-label="Town Clinic">
+    <!-- ضع اللوجو الأصلي هنا: assets/logo.png (من غير أي تعديل) -->
+    <img src="assets/logo.png" alt="Town Clinic – Your Health Is Our Target" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'brand-fallback',textContent:'Town Clinic'}))">
+  </a>
+  <button class="lang" id="langBtn" type="button" aria-label="Change language">English</button>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-text">
+      <h1 data-i18n="hero_title"></h1>
+      <p data-i18n="hero_sub"></p>
+      <div class="cta">
+        <a class="btn" href="tel:01002375800"><span data-i18n="call_ahram"></span></a>
+        <a class="btn ghost" href="tel:01036777718"><span data-i18n="call_october"></span></a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 400 300" role="img">
+        <circle cx="200" cy="150" r="120" fill="#fff" opacity=".7"/>
+        <path d="M175 90h50v50h50v50h-50v50h-50v-50h-50v-50h50z" fill="#0b5c6b"/>
+        <path d="M20 160h90l20-40 30 90 25-70 20 20h175" fill="none" stroke="#5fc0e3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2 data-i18n="about_title"></h2>
+    <p data-i18n="about_text"></p>
+  </section>
+
+  <section class="specialties" id="specialties" hidden>
+    <h2 data-i18n="spec_title"></h2>
+    <ul id="specList"></ul>
+  </section>
+
+  <section class="branches">
+    <h2 data-i18n="branches_title"></h2>
+    <div class="branch-grid">
+      <article class="branch">
+        <h3 data-i18n="b1_name"></h3>
+        <p class="addr" data-i18n="b1_addr"></p>
+        <a class="phone" href="tel:01002375800" dir="ltr">01002375800</a>
+      </article>
+      <article class="branch">
+        <h3 data-i18n="b2_name"></h3>
+        <p class="addr" data-i18n="b2_addr"></p>
+        <a class="phone" href="tel:01036777718" dir="ltr">01036777718</a>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="bar">
+  <div class="bar-col">
+    <p><span class="ic">📞</span> <a href="tel:01002375800" dir="ltr">01002375800</a> — <span data-i18n="b1_name"></span></p>
+    <p><span class="ic">📞</span> <a href="tel:01036777718" dir="ltr">01036777718</a> — <span data-i18n="b2_name"></span></p>
+  </div>
+  <div class="bar-col">
+    <p><span class="ic">📍</span> <span data-i18n="f_addr1"></span></p>
+    <p><span class="ic">📍</span> <span data-i18n="f_addr2"></span></p>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

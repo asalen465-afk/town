@@ -1,0 +1,39 @@
+const T={
+ar:{hero_title:"صحتك هدفنا… ورعاية طبية متعددة التخصصات قريبة منك",
+hero_sub:"عيادات تاون كلينك في حدائق الأهرام وحدائق أكتوبر. اتصل بالفرع الأقرب ليك.",
+call_ahram:"اتصل بفرع حدائق الأهرام",call_october:"اتصل بفرع حدائق أكتوبر",
+about_title:"عن العيادات",
+about_text:"عيادات تاون كلينك بتقدم خدمات طبية في تخصصات متعددة، من خلال فرعين: حدائق الأهرام وحدائق أكتوبر.",
+spec_title:"التخصصات",branches_title:"فروعنا",
+b1_name:"فرع حدائق الأهرام",b2_name:"فرع حدائق أكتوبر",
+b1_addr:"البوابة الأولى – عمارة 174 ج.",b2_addr:"دجلة جاردنز – فوق صيدلية الفؤاد.",
+f_addr1:"فرع حدائق الأهرام: البوابة الأولى – عمارة 174 ج.",
+f_addr2:"فرع حدائق أكتوبر: دجلة جاردنز – فوق صيدلية الفؤاد.",btn:"English"},
+en:{hero_title:"Your Health Is Our Target — multi-specialty care close to you",
+hero_sub:"Town Clinic in Hadayek El Ahram and Hadayek October. Call the branch nearest to you.",
+call_ahram:"Call Hadayek El Ahram",call_october:"Call Hadayek October",
+about_title:"About the clinics",
+about_text:"Town Clinic offers medical services across multiple specialties through two branches: Hadayek El Ahram and Hadayek October.",
+spec_title:"Specialties",branches_title:"Our branches",
+b1_name:"Hadayek El Ahram Branch",b2_name:"Hadayek October Branch",
+b1_addr:"First Gate – Building 174 (ج).",b2_addr:"Dejla Gardens – above Al-Fouad Pharmacy.",
+f_addr1:"Hadayek El Ahram Branch: First Gate – Building 174 (ج).",
+f_addr2:"Hadayek October Branch: Dejla Gardens – above Al-Fouad Pharmacy.",btn:"العربية"}
+};
+function setLang(l){
+  const d=T[l];
+  document.documentElement.lang=l;
+  document.documentElement.dir=l==='ar'?'rtl':'ltr';
+  document.querySelectorAll('[data-i18n]').forEach(e=>e.textContent=d[e.dataset.i18n]);
+  document.getElementById('langBtn').textContent=d.btn;
+  document.title=l==='ar'?'عيادات تاون كلينك | Town Clinic':'Town Clinic | عيادات تاون كلينك';
+  const list=document.getElementById('specList'),s=window.SPECIALTIES||[];
+  list.innerHTML='';
+  s.forEach(x=>{const li=document.createElement('li');li.textContent=x[l];list.appendChild(li)});
+  document.getElementById('specialties').hidden=!s.length;
+  try{localStorage.setItem('tc_lang',l)}catch(e){}
+}
+let cur='ar';
+try{cur=localStorage.getItem('tc_lang')||'ar'}catch(e){}
+document.getElementById('langBtn').onclick=()=>{cur=cur==='ar'?'en':'ar';setLang(cur)};
+setLang(cur);
